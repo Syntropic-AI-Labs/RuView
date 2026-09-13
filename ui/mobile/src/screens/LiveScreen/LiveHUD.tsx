@@ -56,7 +56,10 @@ export const LiveHUD = memo(
           {/* App title */}
           <View style={styles.topLeft}>
             <ThemedText preset="labelLg" style={styles.appTitle}>
-              WiFi-DensePose
+              Syntropic Sense
+            </ThemedText>
+            <ThemedText preset="caption" color="textSecondary">
+              Ambient Care
             </ThemedText>
           </View>
 
@@ -78,7 +81,7 @@ export const LiveHUD = memo(
           {/* Bottom panel */}
           <View style={styles.bottomPanel}>
             <View style={styles.bottomCell}>
-              <ThemedText preset="bodySm">RSSI</ThemedText>
+              <ThemedText preset="bodySm">Signal (RSSI)</ThemedText>
               <ThemedText preset="displayMd" style={styles.bigValue}>
                 {formatRssi(rssi)}
               </ThemedText>
@@ -89,11 +92,11 @@ export const LiveHUD = memo(
             </View>
 
             <View style={styles.bottomCellRight}>
-              <ThemedText preset="bodySm">Confidence</ThemedText>
+              <ThemedText preset="bodySm">Room Presence</ThemedText>
               <ThemedText preset="bodyMd" style={styles.metaText}>
                 {formatConfidence(confidence)}
               </ThemedText>
-              <ThemedText preset="bodySm">People: {personCount}</ThemedText>
+              <ThemedText preset="bodySm">Occupancy: {personCount}</ThemedText>
             </View>
           </View>
         </Animated.View>

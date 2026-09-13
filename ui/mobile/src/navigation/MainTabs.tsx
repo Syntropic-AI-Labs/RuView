@@ -104,15 +104,15 @@ export const MainTabs = () => {
         tabBarActiveTintColor: colors.accent,
         tabBarInactiveTintColor: colors.textSecondary,
         tabBarStyle: {
-          backgroundColor: '#0D1117',
+          backgroundColor: '#0F172A',
           borderTopColor: colors.border,
           borderTopWidth: 1,
         },
         tabBarIcon: ({ color, size }) => <Ionicons name={toIconName(route.name)} size={size} color={color} />,
         tabBarLabelStyle: {
-          fontFamily: 'Courier New',
-          textTransform: 'uppercase',
-          fontSize: 10,
+          fontWeight: '600',
+          textTransform: 'none',
+          fontSize: 11,
         },
         tabBarLabel: ({ children, color }) => <ThemedText style={{ color }}>{children}</ThemedText>,
       })}

@@ -1,26 +1,35 @@
 /* ============================================================
-   RuView Observatory — Foundation Color Scheme
-   Warm dark background, electric green wireframe, amber data
+   Syntropic Sense Observatory — Design System & Theme
+   Matches syntropiclabs.ai design language:
+   Deep forest slate background (#171a18, #1c211e),
+   Warm ivory typography (#f8f7f2),
+   Calming sage/moss accents (#dfe1c9, #0d9488),
+   and gentle rounded pill containers.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --bg-deep:     #080c14;
-  --bg-panel:    rgba(8, 16, 28, 0.85);
-  --bg-panel-border: rgba(0, 210, 120, 0.2);
-  --green-glow:  #00d878;
-  --green-bright:#3eff8a;
-  --green-dim:   #0a6b3a;
-  --amber:       #ffb020;
-  --amber-dim:   #a06800;
-  --blue-signal: #2090ff;
-  --blue-dim:    #0a3060;
-  --red-alert:   #ff3040;
-  --red-heart:   #ff4060;
-  --text-primary:   #e8ece0;
-  --text-secondary: rgba(232,236,224, 0.55);
-  --text-label:     rgba(232,236,224, 0.4);
+  --bg-deep:        #171a18;
+  --bg-dark:        #1c211e;
+  --bg-panel:       rgba(24, 28, 25, 0.88);
+  --bg-panel-border:rgba(248, 247, 242, 0.16);
+  --accent-sage:    #dfe1c9;
+  --teal-glow:      #14b8a6;
+  --teal-bright:    #2dd4bf;
+  --teal-dim:       #0f766e;
+  --green-glow:     #10b981;
+  --green-bright:   #34d399;
+  --green-dim:      #065f46;
+  --amber:          #f59e0b;
+  --amber-dim:      #b45309;
+  --blue-signal:    #38bdf8;
+  --blue-dim:       #0369a1;
+  --red-alert:      #ef4444;
+  --red-heart:      #f43f5e;
+  --text-primary:   #f8f7f2;
+  --text-secondary: rgba(248, 247, 242, 0.72);
+  --text-label:     rgba(248, 247, 242, 0.45);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,7 +37,7 @@
 body {
   background: var(--bg-deep);
   overflow: hidden;
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", 'Inter', sans-serif;
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
 }
@@ -55,26 +64,36 @@ body {
 }
 
 #brand-logo {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 32px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 26px;
   color: var(--text-primary);
-  letter-spacing: -0.5px;
-  text-shadow: 0 0 30px rgba(0, 216, 120, 0.3);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.pi {
-  color: var(--green-glow);
-  font-style: italic;
-  margin-right: 2px;
+.brand-s {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--text-primary);
+  color: var(--bg-deep);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0;
 }
 
 #brand-tagline {
-  font-size: 11px;
-  color: var(--text-secondary);
-  letter-spacing: 1.5px;
+  font-size: 11.5px;
+  color: var(--accent-sage);
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
 /* ---- Status bar (top right) ---- */
@@ -90,14 +109,14 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  background: rgba(0, 216, 120, 0.1);
-  border: 1px solid rgba(0, 216, 120, 0.25);
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(248, 247, 242, 0.08);
+  border: 1px solid var(--bg-panel-border);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--green-glow);
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
 }
 
 .dot {
@@ -118,14 +137,14 @@ body {
   align-items: center;
   gap: 8px;
   padding: 5px 14px;
-  border-radius: 20px;
-  background: rgba(255, 176, 32, 0.1);
-  border: 1px solid rgba(255, 176, 32, 0.25);
+  border-radius: 999px;
+  background: rgba(223, 225, 201, 0.1);
+  border: 1px solid var(--bg-panel-border);
   pointer-events: auto;
 }
 #autoplay-icon {
   font-size: 10px;
-  color: var(--green-glow);
+  color: var(--teal-bright);
   animation: pulse-dot 2s infinite;
 }
 #autoplay-icon.hidden { display: none; }
@@ -136,14 +155,14 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.5px;
-  color: var(--amber);
+  color: var(--accent-sage);
   cursor: pointer;
   outline: none;
 }
 #scenario-quick-select:hover,
-#scenario-quick-select:focus { color: var(--green-glow); }
+#scenario-quick-select:focus { color: var(--text-primary); }
 #scenario-quick-select option {
-  background: #0c1420;
+  background: var(--bg-dark);
   color: var(--text-primary);
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
@@ -162,10 +181,10 @@ body {
   width: 220px;
   background: var(--bg-panel);
   border: 1px solid var(--bg-panel-border);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 16px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   pointer-events: auto;
 }
 

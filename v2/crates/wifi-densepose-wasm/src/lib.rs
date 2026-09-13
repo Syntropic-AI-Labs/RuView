@@ -66,8 +66,10 @@
 
 use wasm_bindgen::prelude::*;
 
-// WiFi-Mat module for disaster response dashboard
+// WiFi-Mat module for disaster response dashboard (archived)
+#[cfg(feature = "mat")]
 pub mod mat;
+#[cfg(feature = "mat")]
 pub use mat::*;
 
 /// Initialize the WASM module.
@@ -110,7 +112,7 @@ pub fn get_version() -> String {
 /// @returns {boolean} True if MAT module is available
 #[wasm_bindgen(js_name = isMatEnabled)]
 pub fn is_mat_enabled() -> bool {
-    true
+    cfg!(feature = "mat")
 }
 
 /// Get current timestamp in milliseconds (for performance measurements).
@@ -124,6 +126,7 @@ pub fn get_timestamp() -> f64 {
 }
 
 // Re-export all public types from mat module for easy access
+#[cfg(feature = "mat")]
 pub mod types {
     pub use super::mat::{
         JsAlert, JsAlertPriority, JsDashboardStats, JsDisasterType, JsScanZone, JsSurvivor,

@@ -18,7 +18,7 @@ members = [
     "crates/wifi-densepose-hardware",
     "crates/wifi-densepose-wasm",
     "crates/wifi-densepose-cli",
-    "crates/wifi-densepose-mat",
+    # wifi-densepose-mat: archived to archive/features/sar/ for Syntropic ambient care hub
     "crates/wifi-densepose-train",
     "crates/wifi-densepose-sensing-server",
     "crates/wifi-densepose-aether",    # ADR-185 §13 — AETHER pure-compute leaf (std-only)
@@ -91,12 +91,7 @@ members = [
     # submodule crates (rufield-core/-provenance/-privacy/-fusion); single
     # coupling point between RuView and the standalone RuField MFS spec.
     "crates/wifi-densepose-rufield",
-    # ADR-287 — coherent wideband RF tomography research crate: synthetic
-    # stepped-frequency multi-position measurement simulation + delay-and-sum
-    # backprojection reconstruction. Standalone leaf (nvsim pattern), zero
-    # hardware coupling, every number SYNTHETIC/L0 until real wideband RF
-    # hardware exists.
-    "crates/wifi-densepose-sar",
+    # wifi-densepose-sar: archived to archive/features/sar/ for Syntropic ambient care hub
     # ADR-300 phase 1 — perception substrate spine (new first-party crates):
     "crates/ruview-ontology",   # ADR-306 canonical spatial ontology (Site..Event)
     "crates/ruview-attest",     # ADR-305 authenticated sensor identity / RF chain of custody
@@ -284,7 +279,7 @@ wifi-densepose-db = { version = "0.3.0", path = "crates/wifi-densepose-db" }
 wifi-densepose-config = { version = "0.3.0", path = "crates/wifi-densepose-config" }
 wifi-densepose-hardware = { version = "0.3.0", path = "crates/wifi-densepose-hardware" }
 wifi-densepose-wasm = { version = "0.3.0", path = "crates/wifi-densepose-wasm" }
-wifi-densepose-mat = { version = "0.3.0", path = "crates/wifi-densepose-mat" }
+# wifi-densepose-mat: archived to archive/features/sar/
 wifi-densepose-ruvector = { version = "0.3.0", path = "crates/wifi-densepose-ruvector" }
 wifi-densepose-worldmodel = { version = "0.3.0", path = "crates/worldgraph/wifi-densepose-worldmodel" }
 ruforecast-core = { version = "0.1.0", path = "crates/ruforecast/crates/ruforecast-core" }

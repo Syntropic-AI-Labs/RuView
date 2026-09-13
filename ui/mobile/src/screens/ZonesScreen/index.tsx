@@ -49,8 +49,11 @@ export const ZonesScreen = () => {
             marginBottom: spacing.md,
           }}
         >
-          <ThemedText preset="labelLg" style={{ color: colors.textSecondary, marginBottom: 8 }}>
-            Floor Plan — Occupancy Heatmap
+          <ThemedText preset="headingSm" style={{ color: colors.textPrimary, marginBottom: 4 }}>
+            Home Rooms & Boundaries
+          </ThemedText>
+          <ThemedText preset="bodySm" color="textSecondary" style={{ marginBottom: 8 }}>
+            Real-time ambient room presence and dwell activity
           </ThemedText>
         </View>
 

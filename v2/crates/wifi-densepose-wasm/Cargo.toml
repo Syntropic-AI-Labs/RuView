@@ -16,7 +16,8 @@ crate-type = ["cdylib", "rlib"]
 
 [features]
 default = ["console_error_panic_hook"]
-mat = ["wifi-densepose-mat"]
+# mat feature disabled for ambient care hub (archived to archive/features/sar)
+# mat = ["wifi-densepose-mat"]
 
 [dependencies]
 # WASM bindings
@@ -58,8 +59,8 @@ chrono = { version = "0.4", features = ["serde", "wasmbind"] }
 uuid = { version = "1.6", features = ["v4", "serde", "js"] }
 getrandom = { version = "0.2", features = ["js"] }
 
-# Optional: wifi-densepose-mat integration
-wifi-densepose-mat = { version = "0.3.0", path = "../wifi-densepose-mat", optional = true, features = ["serde"] }
+# Optional: wifi-densepose-mat integration (archived to archive/features/sar)
+# wifi-densepose-mat = { version = "0.3.0", path = "../wifi-densepose-mat", optional = true, features = ["serde"] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"

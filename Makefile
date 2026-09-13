@@ -2,7 +2,6 @@
 # ============================================================
 
 .PHONY: verify verify-verbose verify-audit install install-verify install-python \
-        install-rust install-browser install-docker install-field install-full \
         check build-rust build-wasm test-rust bench run-api run-viz clean help
 
 # ─── Installation ────────────────────────────────────────────
@@ -26,8 +25,6 @@ install-browser:
 install-docker:
 	@./install.sh --profile docker --yes
 
-install-field:
-	@./install.sh --profile field --yes
 
 install-full:
 	@./install.sh --profile full --yes
@@ -55,9 +52,6 @@ build-rust:
 
 build-wasm:
 	cd v2 && wasm-pack build crates/wifi-densepose-wasm --target web --release
-
-build-wasm-mat:
-	cd v2 && wasm-pack build crates/wifi-densepose-wasm --target web --release -- --features mat
 
 test-rust:
 	cd v2 && cargo test --workspace --no-default-features
@@ -95,7 +89,6 @@ help:
 	@echo "    make install-rust     Rust pipeline with ~810x speedup"
 	@echo "    make install-browser  WASM for browser (~10 MB)"
 	@echo "    make install-docker   Docker-based deployment"
-	@echo "    make install-field    WiFi-Mat disaster kit (~62 MB)"
 	@echo "    make install-full     Everything available"
 	@echo "    make check            Hardware/environment check only"
 	@echo ""
@@ -107,7 +100,6 @@ help:
 	@echo "  Build:"
 	@echo "    make build-rust       Build Rust workspace (release)"
 	@echo "    make build-wasm       Build WASM package (browser)"
-	@echo "    make build-wasm-mat   Build WASM with WiFi-Mat (field)"
 	@echo "    make test-rust        Run all Rust tests"
 	@echo "    make bench            Run signal processing benchmarks"
 	@echo ""

@@ -322,3 +322,5 @@ v2/crates/ruview-offaxis/pkg/
 scripts/fal-visual-teacher/training-data/
 scripts/fal-visual-teacher/training-data.zip
 scripts/fal-visual-teacher/output/
+
+graphify-out/

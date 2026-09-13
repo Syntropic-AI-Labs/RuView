@@ -40,9 +40,8 @@ meridian = ["dep:wifi-densepose-train", "dep:wifi-densepose-signal"]
 # disaster/ML gating: bound only under this extra so the default wheel
 # never carries the detection stack. `tokio`/`geo` are pulled to drive a
 # single-shot scan (see the wheel-size note on the deps below).
-mat = ["dep:wifi-densepose-mat", "dep:tokio", "dep:geo"]
-# ADR-185 §3 — convenience superset: all three SOTA subsystems.
-sota = ["aether", "meridian", "mat"]
+# ADR-185 §3 — convenience superset: SOTA subsystems.
+sota = ["aether", "meridian"]
 
 [dependencies]
 # PyO3 with abi3-py310 — one compiled binary covers Python 3.10, 3.11,
@@ -111,7 +110,6 @@ wifi-densepose-signal = { version = "0.3.0", path = "../v2/crates/wifi-densepose
 # the DEFAULT wheel is untouched. `tokio` (rt+time) and `geo` are depended
 # on directly (version-matched to MAT) to build the single-shot scan
 # runtime and construct the event `geo::Point` in the binding.
-wifi-densepose-mat = { version = "0.3.0", path = "../v2/crates/wifi-densepose-mat", optional = true, default-features = false, features = ["std"] }
 tokio = { version = "1.35", features = ["rt", "time"], optional = true }
 geo = { version = "0.27", optional = true }
 

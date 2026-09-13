@@ -20,14 +20,14 @@ export class NvRail extends LitElement {
     .logo {
       width: 36px; height: 36px;
       border-radius: 10px;
-      background: linear-gradient(135deg, oklch(0.78 0.14 70) 0%, oklch(0.55 0.16 30) 100%);
+      background: linear-gradient(135deg, #0D9488 0%, #0F172A 100%);
       display: grid; place-items: center;
-      color: #1a0f00;
-      font-weight: 700;
-      font-family: var(--mono);
-      font-size: 11px;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-family: var(--sans);
+      font-size: 14px;
       margin-bottom: 14px;
-      box-shadow: 0 4px 12px -2px oklch(0.55 0.16 30 / 0.35);
+      box-shadow: 0 4px 12px -2px rgba(13, 148, 136, 0.4);
     }
     .btn {
       width: 36px; height: 36px;
@@ -61,7 +61,7 @@ export class NvRail extends LitElement {
 
   override render() {
     return html`
-      <div class="logo" aria-hidden="true">NV</div>
+      <div class="logo" title="Syntropic Sense">S</div>
       <nav role="navigation" aria-label="Primary"
         style="display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;">
       <button class="btn ${this.view === 'home' ? 'active' : ''}"

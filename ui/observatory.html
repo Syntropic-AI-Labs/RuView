@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RuView Observatory — WiFi DensePose</title>
+  <title>Syntropic Sense Observatory — In-Home Ambient Sensing</title>
   <link rel="stylesheet" href="observatory/css/observatory.css">
 </head>
 <body>
@@ -14,8 +14,8 @@
 
     <!-- Top-left: Branding -->
     <div id="brand">
-      <div id="brand-logo"><span class="pi">&pi;</span> RuView</div>
-      <div id="brand-tagline">WiFi DensePose Sensing Observatory</div>
+      <div id="brand-logo"><span class="brand-s">S</span> Syntropic Sense</div>
+      <div id="brand-tagline">Ambient Cognitive Care Observatory</div>
     </div>
 
     <!-- Top-right: Connection + status + gear -->
@@ -28,18 +28,12 @@
         <span id="autoplay-icon" title="Auto-cycling">&#9654;</span>
         <select id="scenario-quick-select" title="Change scenario">
           <option value="auto">Auto-Cycle</option>
-          <option value="empty_room">Empty Room</option>
+          <option value="elderly_care" selected>Cognitive Health</option>
+          <option value="fall_event">Fall Alert</option>
+          <option value="sleep_monitoring">Night Rest</option>
           <option value="single_breathing">Vital Signs</option>
-          <option value="two_walking">Multi-Person</option>
-          <option value="fall_event">Fall Detect</option>
-          <option value="sleep_monitoring">Sleep Monitor</option>
-          <option value="intrusion_detect">Intrusion</option>
-          <option value="gesture_control">Gesture Ctrl</option>
-          <option value="crowd_occupancy">Crowd (4 ppl)</option>
-          <option value="search_rescue">Search Rescue</option>
-          <option value="elderly_care">Elderly Care</option>
-          <option value="fitness_tracking">Fitness</option>
-          <option value="security_patrol">Security Patrol</option>
+          <option value="two_walking">Room Presence</option>
+          <option value="intrusion_detect">Exit Guard</option>
         </select>
       </div>
       <div id="scenario-description"></div>
@@ -272,21 +266,11 @@
               <option value="two_walking">Multi-Person Tracking</option>
               <option value="fall_event">Fall Detection</option>
             </optgroup>
-            <optgroup label="Medical / Health">
-              <option value="sleep_monitoring">Sleep Monitoring (Apnea)</option>
-              <option value="elderly_care">Elderly Care (Gait)</option>
-              <option value="fitness_tracking">Fitness Tracking</option>
-            </optgroup>
-            <optgroup label="Security">
-              <option value="intrusion_detect">Intrusion Detection</option>
-              <option value="security_patrol">Security Patrol</option>
-            </optgroup>
-            <optgroup label="Building / Retail">
-              <option value="crowd_occupancy">Crowd Occupancy (4 ppl)</option>
-              <option value="gesture_control">Gesture Control (DTW)</option>
-            </optgroup>
-            <optgroup label="Disaster / Tactical">
-              <option value="search_rescue">Search &amp; Rescue (WiFi-Mat)</option>
+            <optgroup label="Cognitive Care &amp; Daily Living">
+              <option value="elderly_care" selected>Cognitive Health (Gait &amp; Dwell)</option>
+              <option value="sleep_monitoring">Night Rest &amp; Bed Exit</option>
+              <option value="intrusion_detect">Doorway &amp; Exit Monitor</option>
+              <option value="crowd_occupancy">Family Presence</option>
             </optgroup>
           </select>
         </label>

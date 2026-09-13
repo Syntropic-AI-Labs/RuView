@@ -1,25 +1,23 @@
-/* nvsim dashboard — global styles
-   Ported from `assets/NVsim Dashboard.zip` per ADR-092 §7.1.
-   Per-component scoped styles live in each Lit element. */
+/* Syntropic Sense dashboard — global healthcare/ambient styles */
 
 :root {
-  --bg-0: #07090d;
-  --bg-1: #0d1117;
-  --bg-2: #131a23;
-  --bg-3: #1a232f;
-  --line: #1f2a38;
-  --line-2: #2a3848;
-  --ink: #e6edf3;
-  --ink-2: #b8c2cc;
-  --ink-3: #7c8694;
-  --ink-4: #4a5462;
-  --accent: oklch(0.78 0.14 70);
-  --accent-2: oklch(0.78 0.12 195);
-  --accent-3: oklch(0.72 0.18 330);
-  --accent-4: oklch(0.78 0.14 145);
-  --warn: oklch(0.7 0.18 35);
-  --ok: oklch(0.78 0.14 145);
-  --bad: oklch(0.65 0.22 25);
+  --bg-0: #0B1120;
+  --bg-1: #0F172A;
+  --bg-2: #1E293B;
+  --bg-3: #334155;
+  --line: #1E293B;
+  --line-2: #334155;
+  --ink: #F8FAFC;
+  --ink-2: #E2E8F0;
+  --ink-3: #94A3B8;
+  --ink-4: #64748B;
+  --accent: #0D9488;     /* Syntropic Teal */
+  --accent-2: #14B8A6;   /* Bright Teal */
+  --accent-3: #06B6D4;   /* Ambient Cyan */
+  --accent-4: #10B981;   /* Emerald */
+  --warn: #F59E0B;       /* Amber */
+  --ok: #10B981;         /* Green */
+  --bad: #EF4444;        /* Rose Red */
   --grid: rgba(255, 255, 255, 0.04);
   --shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6),
             0 4px 12px -4px rgba(0, 0, 0, 0.4);
@@ -30,19 +28,26 @@
 }
 
 [data-theme="light"] {
-  --bg-0: #f4f5f7;
-  --bg-1: #fbfbfc;
-  --bg-2: #ffffff;
-  --bg-3: #f0f2f5;
-  --line: #d8dde3;
-  --line-2: #c1c8d1;
-  --ink: #0e131a;
-  --ink-2: #2c3744;
-  --ink-3: #54606e;     /* AA on --bg-1 #fbfbfc — was #6b7684 (3.7:1), now ~5.4:1 */
-  --ink-4: #7a8390;     /* improved from #9ba4b0 for incidental UI labels */
+  --bg-0: #F1F5F9;
+  --bg-1: #F8FAFC;
+  --bg-2: #FFFFFF;
+  --bg-3: #E2E8F0;
+  --line: #E2E8F0;
+  --line-2: #CBD5E1;
+  --ink: #0F172A;
+  --ink-2: #1E293B;
+  --ink-3: #475569;
+  --ink-4: #64748B;
+  --accent: #0D9488;
+  --accent-2: #0F766E;
+  --accent-3: #0891B2;
+  --accent-4: #059669;
+  --warn: #D97706;
+  --ok: #059669;
+  --bad: #DC2626;
   --grid: rgba(0, 0, 0, 0.05);
-  --shadow: 0 12px 40px -16px rgba(15, 30, 55, 0.18),
-            0 2px 8px -2px rgba(15, 30, 55, 0.08);
+  --shadow: 0 12px 40px -16px rgba(15, 30, 55, 0.12),
+            0 2px 8px -2px rgba(15, 30, 55, 0.06);
 }
 
 * { box-sizing: border-box; }

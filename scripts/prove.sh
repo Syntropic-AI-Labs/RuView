@@ -124,8 +124,7 @@ hr
 echo "[4] DATA/HARDWARE-GATED claims (reproduce instructions, not asserted here)"
 if [ "$FULL" = "1" ]; then
   echo "  (--full) attempting the gated claims; missing prereqs are reported, not failed:"
-  claim_test wifi-densepose-mat test_identical_vitals_no_location_dedup_to_one \
-    "ADR-158 §2 survivor dedup 3->1 (count-inflation fix)" --features mat
+  SKIP "wifi-densepose-mat survivor dedup (ADR-158 §2) — ARCHIVED to archive/features/sar/ for Syntropic Sense ambient hub"
 else
   SKIP "WiFlow-STD ~96% PCK@20 reproduction — needs an NVIDIA GPU + MM-Fi dataset; see benchmarks/wiflow-std/RESULTS.md"
   SKIP "named person-identity — DATA-GATED: needs a real enrollment feeding the AETHER/body-resonance channel (see docs/research/soul/)"

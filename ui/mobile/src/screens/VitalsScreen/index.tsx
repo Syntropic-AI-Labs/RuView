@@ -73,26 +73,26 @@ export default function VitalsScreen() {
 
         <View style={styles.section}>
           <ThemedText preset="labelLg" color="textSecondary">
-            RSSI HISTORY
+            RF SIGNAL STABILITY
           </ThemedText>
           <SparklineChart data={rssiHistory.length > 0 ? rssiHistory : [0]} color={colors.accent} />
         </View>
 
-        <MetricCard label="Variance" value={features?.variance ?? 0} unit="" sparklineData={rssiHistory} color={colors.accent} />
+        <MetricCard label="Activity Level" value={features?.variance ?? 0} unit="" sparklineData={rssiHistory} color={colors.accent} />
         <MetricCard
-          label="Motion Band"
+          label="Gross Body Motion"
           value={features?.motion_band_power ?? 0}
           unit=""
           color={colors.success}
         />
         <MetricCard
-          label="Breath Band"
+          label="Respiration Wave"
           value={features?.breathing_band_power ?? 0}
           unit=""
           color={colors.warn}
         />
         <MetricCard
-          label="Spectral Entropy"
+          label="Signal Complexity"
           value={features?.spectral_entropy ?? 0}
           unit=""
           color={colors.connected}
@@ -100,7 +100,7 @@ export default function VitalsScreen() {
 
         <View style={styles.classificationSection}>
           <ThemedText preset="labelLg" style={styles.rowLabel}>
-            Classification: {badgeLabel}
+            Wellness & Activity Check: {badgeLabel}
           </ThemedText>
           <View style={[styles.badgePill, { borderColor: classificationColor, backgroundColor: `${classificationColor}18` }]}>
             <ThemedText preset="labelMd" style={{ color: classificationColor }}>

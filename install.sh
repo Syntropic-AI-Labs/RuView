@@ -502,54 +502,6 @@ recommend_profile() {
             browser) echo -e "    ${BOLD}${idx})${RESET} browser - WASM for browser deployment (~10 MB output)${marker}" ;;
             docker)  echo -e "    ${BOLD}${idx})${RESET} docker  - Docker-based deployment (~1 GB image)${marker}" ;;
             iot)     echo -e "    ${BOLD}${idx})${RESET} iot     - ESP32 sensor mesh + aggregator${marker}" ;;
-            field)   echo -e "    ${BOLD}${idx})${RESET} field   - WiFi-Mat disaster response kit (~62 MB)${marker}" ;;
-        esac
-        profile_names+=("$p")
-    done
-
-    # Always show full as the last option
-    idx=$((idx + 1))
-    echo -e "    ${BOLD}${idx})${RESET} full    - Install everything available"
-    profile_names+=("full")
-
-    if [ -n "$PROFILE" ]; then
-        echo ""
-        echo -e "  Profile specified via --profile: ${BOLD}${PROFILE}${RESET}"
-        return
-    fi
-
-    if $CHECK_ONLY; then
-        return
-    fi
-
-    echo ""
-    read -rp "  Select profile [1-${idx}] (default: ${recommended}): " choice
-
-    if [ -z "$choice" ]; then
-        PROFILE="$recommended"
-    elif [ "$choice" -ge 1 ] 2>/dev/null && [ "$choice" -le "$idx" ]; then
-        PROFILE="${profile_names[$((choice - 1))]}"
-    else
-        echo -e "  ${RED}Invalid choice. Using ${recommended}.${RESET}"
-        PROFILE="$recommended"
-    fi
-
-    echo ""
-    echo -e "  Selected: ${BOLD}${PROFILE}${RESET}"
-}
-
-# ======================================================================
-#  STEP 5: INSTALL DEPENDENCIES
-# ======================================================================
-
-install_deps() {
-    step "5/7" "Installing Dependencies"
-    echo ""
-
-    case "$PROFILE" in
-        verify)
-            install_verify_deps
-            ;;
         python)
             install_verify_deps
             install_python_deps
@@ -567,10 +519,6 @@ install_deps() {
             ;;
         docker)
             check_docker_deps
-            ;;
-        field)
-            install_rust_deps
-            install_field_deps
             ;;
         full)
             install_verify_deps
@@ -771,10 +719,6 @@ run_build() {
             ;;
         docker)
             build_docker
-            ;;
-        field)
-            build_rust_crate "wifi-densepose-mat" "WiFi-Mat disaster module"
-            build_wasm_field
             ;;
         full)
             build_verify
@@ -994,16 +938,6 @@ post_install() {
             echo ""
             echo "    # Production:"
             echo "    docker run -d -p 8000:8000 wifi-densepose:latest"
-            ;;
-        field)
-            echo "    # WiFi-Mat disaster response module built."
-            echo ""
-            echo "    # Run WiFi-Mat tests:"
-            echo "    cd v2"
-            echo "    cargo test --package wifi-densepose-mat"
-            echo ""
-            echo "    # Field deployment WASM package at:"
-            echo "    # v2/crates/wifi-densepose-wasm/pkg/"
             ;;
         full)
             echo "    # Verification:  ./verify"
