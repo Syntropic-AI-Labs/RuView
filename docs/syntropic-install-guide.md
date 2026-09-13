@@ -201,10 +201,20 @@ cargo run --release -p wifi-densepose-sensing-server -- \
   --source simulated \
   --http-port 3000 \
   --ws-port 3001 \
-  --tick-ms 100
+  --tick-ms 100 \
+  --load-rvf docker/wifi-densepose-v1.rvf
 ```
 
 *Tip: For live code reloading during backend development, use `cargo watch -x 'run -p wifi-densepose-sensing-server -- --source simulated'`.*
+
+> **Note on `/api/v1/model/info` and RVF Containers:**
+> If you query `http://localhost:3000/api/v1/model/info` and receive:
+> ```json
+> {"message": "No RVF container loaded. Use --load-rvf <path> to load one.", "status": "no_model"}
+> ```
+> This indicates that the server started without an explicit pre-trained neural neural network model container (`.rvf` = RuVector Format). 
+> - **Is this an error?** No. The server's real-time digital signal processing (FFT, Welford statistical filters, breathing rate, and gait analysis) runs fully without a neural model.
+> - **How to load one:** Pass `--load-rvf docker/wifi-densepose-v1.rvf` (or set `MODELS_DIR=data/models` in `.env` / Docker) to enable the progressive deep neural network pose estimator.
 
 ### Step 4.3: Running the Web Dashboard / Kiosk
 
@@ -289,6 +299,7 @@ Expected response from `/api/health`:
 | `failed to read .../vendor/rufield/crates/rufield-adapters/Cargo.toml` | Git submodules are not checked out | Run `git submodule update --init --recursive` in the repository root. |
 | `permission denied while trying to connect to the docker API` | Non-root user is not in the `docker` group | Run `sudo usermod -aG docker $USER && newgrp docker`, or execute with `sudo docker compose ...`. |
 | `exit code 78` on server startup | No CSI packets detected from ESP32 nodes | Verify ESP32 nodes are powered and configured with the hub's LAN IP. Use `--source simulated` for dev testing. |
+| `No RVF container loaded` on `/api/v1/model/info` | Server started without `--load-rvf <path>` | Optional: DSP and vitals continue working without it. To load, pass `--load-rvf docker/wifi-densepose-v1.rvf` or mount a model in Docker. |
 | Dashboard shows "Disconnected" | WebSocket port 3001 blocked by host firewall | Run `sudo ufw allow 3000/tcp && sudo ufw allow 3001/tcp && sudo ufw allow 5005/udp`. |
 | Packet drop / High latency | 2.4 GHz Wi-Fi congestion in the home | Switch ESP32 broadcast channel in `menuconfig` to an uncongested channel (1, 6, or 11). |
 | Mini PC rebooted | Power outage / surge | Verify `syntropic-hub.service` is enabled via `systemctl is-enabled syntropic-hub`. Consider attaching an inexpensive UPS battery backup. |
